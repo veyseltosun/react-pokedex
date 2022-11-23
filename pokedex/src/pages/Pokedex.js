@@ -4,6 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import axios from "axios"
 import {POKEMON_API_URL, IMAGE_API_URL} from "../config/index";
 import { Grid } from '@mui/material';
+import PokemonCard from '../components/PokemonCard';
 
 
 
@@ -34,9 +35,11 @@ function Pokedex() {
 
     <Box>
       {pokemonData ? 
-      <Grid container spacing={2}>
+      <Grid container spacing={2} >
         {pokemonData.map((pokemon, index)=>{
-          return <h1 key={index} >{pokemon.name}</h1>
+          return (
+            <PokemonCard key={index} pokemon={pokemon} image={pokemon.url}/>
+          )
         })}
         
       </Grid>

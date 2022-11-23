@@ -1,5 +1,5 @@
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,11 +12,11 @@ export default function Navbar() {
   return (
    
 
-    <Box sx={{ flexGrow: 1 }} style={{padding:"20px"}}>
+    <Box sx={{ flexGrow: 1 }} style={{padding:"25px"}}>
       <AppBar position="fixed" style={{backgroundColor:"black"}}>
         <Toolbar variant="dense" >
           <Link to="/" className='Link' style={{textDecoration:"none", color:"white"}}>
-          <Typography  variant="h6" color="inherit" component="div">
+          <Typography  variant="h5" color="inherit" component="div">
             Pokedex
           </Typography>
           </Link>
