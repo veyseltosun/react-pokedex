@@ -77,7 +77,7 @@ function PokemonDetails(props) {
     
                             </Grid>
                             {pokemon.types.map((type,index)=>{
-                                const {name} = type;
+                                const {name} = type.type;
                                 console.log("name",name);
                                 return(
                                     <Grid item md={2} key={index}>
