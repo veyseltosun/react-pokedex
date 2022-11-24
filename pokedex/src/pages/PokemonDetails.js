@@ -5,6 +5,7 @@ import React,{useState, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import { POKEMON_API_URL } from '../config';
 import FavoriteIcon from "@mui/icons-material/Favorite"
+import { toggleFavourite } from "../redux/actions";
 
 
 function PokemonDetails(props) {
@@ -22,6 +23,27 @@ function PokemonDetails(props) {
             }
         })
     }, [])
+
+    const favouriteChecker = (pokemon)  =>{
+        let found = false
+        this.props.favourites?.map((p) => {
+          if(p.id === pokemon.id) {
+            found = true
+          }
+        })
+        return found
+      };
+      const mapStateToProps = (state) => ({
+        favourites: state.favourites
+      });
+      
+      const mapDispatchToProps = (dispatch) => ({
+        toggleFavourite: (pokemon) => dispatch(toggleFavourite(pokemon)),
+      });
+      
+      export default withStyles(styles)(
+        connect(mapStateToProps, mapDispatchToProps)(PokemonDetails)
+      );
     
 
  
@@ -43,9 +65,9 @@ function PokemonDetails(props) {
                         <hr style={{height:"0.01mm", width:"99%"}}></hr>
                         <Grid container spacing={2}>
                             <Grid item md={1}>
-                                <Button style={{height:"50", weight:"50", marginTop:"15"}}>
+                                <Button style={{height:"50", weight:"50", marginTop:"15"}} onClick={() => this.props.toggleFavourite(pokemon)}>
     
-                                    <FavoriteIcon style={{color:"white", fontSize:"50px"}}></FavoriteIcon>
+                                    <FavoriteIcon style={{ color: this.favouriteChecker(pokemon) ? "red" : "white", fontSize:"50px"}}></FavoriteIcon>
     
                                 </Button>
                             </Grid>
