@@ -8,8 +8,8 @@ const App = () => {
     <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route path='/' element={<Pokedex/>}/>
         <Route path='/pokemon/:id' element={<PokemonDetails/>}/>
+        <Route path='/' element={<Pokedex/>}/>
       </Routes>
     </BrowserRouter>
   )
