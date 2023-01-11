@@ -21,10 +21,16 @@ const PokemonDetails = (props) => {
 
         { pokemon ? 
           
-        <Box sx={{height:"700vh", backgroundColor:"black", textAlign:"center", borderRadius: 5, paddingTop: 10,}}>
+        <Box sx={{height:"84vh", backgroundColor:"black", textAlign:"center", borderRadius: 5, paddingTop: 10,}}>
 
             <Typography sx={{color: "white", textTransform:"upperCase", fontFamily:"Fantasy"}} variant='h1'>{pokemon.name}</Typography>
-            <img src={pokemon.sprites.front_default} height="200px" weight="200px" />
+            <img src={pokemon.sprites.front_default} height="200px" width="200px" />
+            
+            <img src={pokemon.sprites.front_shiny} height="200px" width="200px" />
+            <Box sx={{backgroundColor:"blues"}}>
+                <hr style={{height:"0.01mm", width:"95%"}}/>
+
+            </Box>
             
         </Box>
             
