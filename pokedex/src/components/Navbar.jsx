@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{backgroundColor:"black",  }}>
+    <Box sx={{ flexGrow: 1, marginBottom: 10, }}>
+      <AppBar position="fixed" sx={{backgroundColor:"black",  }}>
         <Toolbar >
          <Link to="/" style={{textDecoration: "none", color:"white"}} >
           <Typography variant="h5" component="div" sx={{ flexGrow: 1,}}>

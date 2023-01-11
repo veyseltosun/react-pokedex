@@ -1,8 +1,10 @@
 import React, {useEffect} from 'react';
 import axios from "axios";
 import { IMAGE_API_URL, POKEMON_API_URL } from '../config';
-import { CircularProgress } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
 import { Box } from '@mui/system';
+import { Grid } from '@mui/material';
+import PokemonCard from '../components/PokemonCard';
 
 
 
@@ -15,6 +17,7 @@ const Pokedex = () => {
                 const {results} = response.data;
                 let newPokemonData = [] ;
                 results.forEach((pokemon, index) => {
+                    index++
                
                         let pokemonObject = {
                             id: index,
@@ -30,12 +33,14 @@ const Pokedex = () => {
 
     }, [])
   return (
-    <Box>
-        {pokemonData ? pokemonData.map((pokemon) => {
+    <Box sx={{backgroundColor:"rgb(68, 68, 68)"}}>
+        {pokemonData ? <Grid container spacing={2}>
+            {pokemonData.map((pokemon) => {
             return (
-                <h1 key={pokemon.id}>{pokemon.name}</h1>
+                <PokemonCard pokemon={pokemon} image={pokemon.url} key={pokemon.id}/>
             )
-        }) : <CircularProgress sx={{marginTop:100}} />}
+        })}
+        </Grid> : <CircularProgress sx={{marginTop:100}} />}
     </Box>
   )
 }
