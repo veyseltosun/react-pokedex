@@ -1,8 +1,15 @@
-import React from 'react'
+import Navbar from './components/Navbar'
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Pokedex from './Pages/Pokedex';
 
 const App = () => {
   return (
-    <div>App</div>
+    <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Pokedex/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
