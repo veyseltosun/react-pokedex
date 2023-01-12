@@ -16,6 +16,11 @@ const Navbar = () => {
             Pokedex
           </Typography>
           </Link>
+         <Link to="/favourites" style={{textDecoration: "none", color:"white"}} >
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1, marginLeft:10}}>
+            Favourites
+          </Typography>
+          </Link>
           
         </Toolbar>
       </AppBar>
